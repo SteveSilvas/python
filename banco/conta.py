@@ -30,6 +30,14 @@ class Conta:
             print('Saldo indisponível para este saque')
         self.getSaldo()
 
+    def transferir(self, valor, destinatario):
+        if self.saldo > valor:
+            destinatario.valor = valor
+            self.saldo -= valor
+            print("Transferência realizada com sucesso")
+        else:
+            print("Saldo insuficiente")
+
     def getTitular(self):
         return self.titular
 

@@ -27,25 +27,35 @@ class CaixaEletronico:
             print(i)
 
     def mostraMenu(self):
+        print("---------------------   Menu   --------------------")
+        print("---------------------------------------------------")
         print("Para Saldo digite 0")
         print("Para Saque digite 1")
         print("Para Depósito digite 2")
         print("Para Transferência digite 3")
+        print("Digite 0 para continuar ou qualquer tecla para sair")
+        print("----------------------------------------------------\n")
 
         opcao = int(input("digite a ação desejada\n"))
         match opcao:
             case 0:
+                print("Saldo")
                 self.contaLogada.getSaldo()
+                self.mostraMenu()
             case 1:
-                self.contaLogada.sacar(int(input("Digite o valor de saque")))
+                print("Saque")
+                self.contaLogada.sacar(int(input("Digite o valor de saque\n")))
+                self.mostraMenu()
             case 2:
                 print("Depósito")
-                self.contaLogada.depositar(float(input("Digite o valor para depósito")))
+                self.contaLogada.depositar(float(input("Digite o valor para depósito\n")))
+                self.mostraMenu()
             case 3:
                 print("Transferência")
-
-    def loopMenu():
-        input("Digite 0 para continuar ou qualquer tecla para sair")
+                valor = int(input("Digite o valor para saque\n"))
+                destinatario = Titular("Sika", "424123455666")
+                self.contaLogada.transferir(valor, destinatario)
+                self.mostraMenu()
 
 
     def loginConta(self, agencia, digAgencia, conta, digConta, titular):
