@@ -1,3 +1,6 @@
+from conta import Conta
+from titular import Titular
+from clientes import Clientes
 class CaixaEletronico:
     def __init__(self):
         self.notas = [200, 100, 50, 20, 10, 5, 2]
@@ -5,6 +8,7 @@ class CaixaEletronico:
         self.quantidadeNotas = [0,0,0,0,0,0,0]
         self.quantidadeMoedas = 0
         self.notasRetornadas = []
+        self.contaLogada = None
         
     def calculaMinimoNotas(self, valor):
         print(str(self.notas))
@@ -23,24 +27,32 @@ class CaixaEletronico:
             print(i)
 
     def mostraMenu(self):
-        print("Insira o cartão para entrar no seu banco")
         print("Para Saldo digite 0")
         print("Para Saque digite 1")
         print("Para Depósito digite 2")
         print("Para Transferência digite 3")
 
-        opcao = int(input("digite a ação desejada"))
+        opcao = int(input("digite a ação desejada\n"))
         match opcao:
             case 0:
-                print("Saldo")
+                self.contaLogada.getSaldo()
             case 1:
-                print("Saque")
+                self.contaLogada.sacar(int(input("Digite o valor de saque")))
             case 2:
                 print("Depósito")
+                self.contaLogada.depositar(float(input("Digite o valor para depósito")))
             case 3:
                 print("Transferência")
 
+    def loopMenu():
+        input("Digite 0 para continuar ou qualquer tecla para sair")
+
+
+    def loginConta(self, agencia, digAgencia, conta, digConta, titular):
+        self.contaLogada = Conta(agencia, digAgencia, conta, digConta, titular)
+        self.mostraMenu()
+
 caixa = CaixaEletronico()
-caixa.mostraMenu()
-valorDeSaque = 445
-caixa.calculaMinimoNotas(valorDeSaque)
+clientes = Clientes()
+titular = clientes.getTitular(4)
+caixa.loginConta(3423, 3, 43434343, 43, titular)
