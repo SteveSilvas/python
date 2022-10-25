@@ -5,6 +5,7 @@ class CaixaEletronico:
         self.quantidadeNotas = [0,0,0,0,0,0,0]
         self.quantidadeMoedas = 0
         self.notasRetornadas = []
+        
     def calculaMinimoNotas(self, valor):
         print(str(self.notas))
         for i in range(len(self.notas)):

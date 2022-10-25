@@ -1,4 +1,4 @@
-import caixa
+import conta
 
 class Movimentacao:
     def __init__(self, tipo):
@@ -9,7 +9,7 @@ class Movimentacao:
         print(str(self.contas))
         
     def criarConta(self):
-        conta = Conta("Steve", "324.545.765-00")
+        conta = conta.Conta("Steve", "324.545.765-00")
         self.contas.push(conta)
 
     def movimentar(self):
