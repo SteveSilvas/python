@@ -1,4 +1,7 @@
 import basicas
+from components.components import Components
+
+
 class Calc:
     def __init__(self):
         self.basicas = basicas.Basicas()
@@ -8,7 +11,8 @@ class Calc:
         print("Digite 2 para Subtrair")
         print("Digite 3 para Multiplicar")
         print("Digite 4 para Dividir")
-        option = int(input("Selecione uma opção de cálculo \n"))
+        comp =  Components()
+        option = comp.inputNumber("Entre com o tipo de cáculo")
         match option:
             case 1:
                 self.startSoma()
